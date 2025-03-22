@@ -13,7 +13,7 @@
 
   <div class="filter-container mb-4 flex">
     @php
-      $filters =[
+      $filters = [
         '' => 'Lastest',
         'popular_last_month' => 'Popular Last Month',
         'popular_last_6months' => 'Popular Last 6 Months',
