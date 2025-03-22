@@ -22,6 +22,9 @@
   </div>
   <div>
     <h2 class="mb-4 text-xl font-semibold">Reviews</h2>
+    <form action="{{ route('books.index') }}" method="GET">
+      <button type="submit" class="btn mb-4">Top page</button>
+    </form>
     <ul>
       @forelse ($book->reviews as $review)
         <li class="book-item mb-4">

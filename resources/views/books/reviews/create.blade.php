@@ -2,7 +2,9 @@
 
 @section('content')
   <h1 class="mb-10 text-2x1">Add Review for {{ $book ->title }}</h1>
-
+  @error('review')
+    <div class="text-red-500 mb-4 text-sm">{{ $message }}</div>
+  @enderror
   <form method="POST" action="{{ route('books.reviews.store', $book) }}">
     @csrf
     <label for="review">Review</label>
