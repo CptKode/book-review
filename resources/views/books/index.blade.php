@@ -3,7 +3,12 @@
 @section('content')
   <h1 class="mb-10 text-2x1">Books</h1>
 
-  <form></form>
+  <form method="GET" action="{{ route('books.index') }}">
+    <input type="text" name="title" placeholder="Search by title"
+      value="{{ request('title') }}" class="input" />
+    <button type="submit" class="btn">Search</button>
+    <a href="{{ route('books.index') }}">Clear</a>
+  </form>
 
   <ul>
     @forelse ($books as $book)
@@ -30,7 +35,7 @@
       <li>
         <div class="empty-book-item">
           <p class="empty-text">No books found</p>
-          <a href="#" class="reset-link">Reset criteria</a>
+          <a href="{{ route('books.index') }}" class="reset-link">Reset criteria</a>
         </div>
       </li>
     @endforelse
