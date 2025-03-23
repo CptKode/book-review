@@ -20,10 +20,10 @@ class BookController extends Controller
         });
 
         $books = match($filter) {
-            'popular_last_month' => $books->popularLastMonth(),
-            'popular_last_6months' => $books->popularLast6Months(),
-            'highest_rated_last_month' => $books->highestRatedLastMonth(),
-            'highest_rated_last_6months' => $books->highestRatedLast6Months(),
+            'popular_most' => $books->withReviewsCount()->orderBy('reviews_count', 'desc'),
+            'popular_least' => $books->withReviewsCount()->orderBy('reviews_count', 'asc'),
+            'highest_rated_best' => $books->highestRated()->orderBy('reviews_avg_rating', 'desc'),
+            'highest_rated_worst' => $books->highestRated()->orderBy('reviews_avg_rating', 'asc'),
             default => $books->latest()->withAvgRating()->withReviewsCount()
         };
 
